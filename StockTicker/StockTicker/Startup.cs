@@ -24,7 +24,6 @@ namespace StockTicker
             var cosmosClientOptions = new CosmosClientOptions
             {
                 ConnectionMode = ConnectionMode.Direct,
-                ApplicationRegion = "Australia East",
                 AllowBulkExecution = true,
                 MaxRetryAttemptsOnRateLimitedRequests = 3
             };
@@ -32,6 +31,7 @@ namespace StockTicker
             builder.Services.AddSingleton((s) => new CosmosClient(config["CosmosDBConnectionString"], cosmosClientOptions));
 
             builder.Services.AddTransient<IStockRepository, StockRepository>();
+            builder.Services.AddTransient<IStockAggregateRepository, StockAggregateRepository>();
         }
     }
 }

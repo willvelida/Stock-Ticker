@@ -11,7 +11,7 @@ namespace StockTicker.Helpers
         {
             var stocks = new Faker<Stock>()
                 .RuleFor(i => i.StockId, (fake) => Guid.NewGuid().ToString())
-                .RuleFor(i => i.Name, (fake) => fake.PickRandom(new List<string> { "" }))
+                .RuleFor(i => i.Name, (fake) => fake.PickRandom(new List<string> { "MSFT", "GameStop", "Reddit", "Nokia", "Samsung", "Coca-Cola", "Pepsi", "Wrigley", "Dell" }))
                 .RuleFor(i => i.OpenPrice, (fake) => fake.Random.Decimal(10.0m, 12.0m))
                 .RuleFor(i => i.HighPrice, (fake) => fake.Random.Decimal(25.0m, 30.0m))
                 .RuleFor(i => i.LowPrice, (fake) => fake.Random.Decimal(8.0m, 10.0m))
