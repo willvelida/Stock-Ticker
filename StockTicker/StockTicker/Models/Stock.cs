@@ -1,7 +1,10 @@
-﻿namespace StockTicker.Models
+﻿using Newtonsoft.Json;
+
+namespace StockTicker.Models
 {
     public class Stock
     {
+        [JsonProperty(PropertyName = "id")]
         public string StockId { get; set; }
         public string Name { get; set; }
         public decimal OpenPrice { get; set; }
