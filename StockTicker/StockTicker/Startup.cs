@@ -20,6 +20,7 @@ namespace StockTicker
                 .Build();
 
             builder.Services.AddSingleton<IConfiguration>(config);
+            builder.Services.AddLogging();
 
             var cosmosClientOptions = new CosmosClientOptions
             {
@@ -32,6 +33,7 @@ namespace StockTicker
             builder.Services.AddSingleton((s) => new CosmosClient(config["CosmosDBConnectionString"], cosmosClientOptions));
 
             builder.Services.AddTransient<IStockRepository, StockRepository>();
+            builder.Services.AddTransient<IStockAggregateRepository, StockAggregateRepository>();
         }
     }
 }

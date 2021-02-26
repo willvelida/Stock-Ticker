@@ -7,6 +7,11 @@ namespace StockTicker.Helpers
 {
     public static class StockDataHelper
     {
+        /// <summary>
+        /// Helper method to generate fake stocks.
+        /// </summary>
+        /// <param name="numberOfStocks"></param>
+        /// <returns></returns>
         public static List<Stock> GenerateStocks(int numberOfStocks)
         {
             var stocks = new Faker<Stock>()
