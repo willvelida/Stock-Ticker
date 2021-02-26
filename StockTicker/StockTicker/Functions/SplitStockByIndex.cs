@@ -30,7 +30,11 @@ namespace StockTicker.Functions
             collectionName: "Stock",
             ConnectionStringSetting = "CosmosDBConnectionString",
             LeaseCollectionName = "leases",
-            CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> input)
+            CreateLeaseCollectionIfNotExists = true,
+            FeedPollDelay = 30,
+            StartFromBeginning = true,
+            UseMultipleWriteLocations = false,
+            LeaseCollectionPrefix = "GIB2021")]IReadOnlyList<Document> input)
         {
             try
             {
